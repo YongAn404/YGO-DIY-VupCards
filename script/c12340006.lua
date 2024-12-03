@@ -1,4 +1,4 @@
---直播暂停
+--VUP直播指令！直播暂停
 local this,id,ofs=GetID()
 function this.initial_effect(c)
 	local e1=Effect.CreateEffect(c)
@@ -13,7 +13,7 @@ function this.initial_effect(c)
 	c:RegisterEffect(e1)
 end
 function this.target1(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
-    if chkc then return  Card.IsAttackPos(chkc) end
+    if chkc then return Card.IsAttackPos(chkc) end
 	if chk==0 then return Duel.IsExistingTarget(Card.IsAttackPos,tp,LOCATION_MZONE,0,1,nil) end
 	local g=Duel.SelectTarget(tp,Card.IsAttackPos,tp,LOCATION_MZONE,0,1,1,nil)
 	Duel.SetOperationInfo(0,CATEGORY_POSITION,g,1,tp,0)

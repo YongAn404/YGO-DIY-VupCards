@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 --系统故障
 function c1201.initial_effect(c)
 	local e1=Effect.CreateEffect(c)
@@ -21,13 +20,13 @@ function c1201.target1(e,tp,eg,ep,ev,re,r,rp,chk,chkc)
 	Duel.Hint(HINT_SELECTMSG,tp,HINTMSG_DESTROY)
 	local g=Duel.SelectTarget(tp,c1201.filter1,tp,LOCATION_MZONE,LOCATION_MZONE,3,3,nil,e)
 	Duel.SetOperationInfo(0,CATEGORY_DESTROY,g,3,tp,LOCATION_MZONE)
-	Duel.SetOperationInfo(0,CATEGORY_SPECIAL_SUMMON,g,1,tp,0)
+	Duel.SetOperationInfo(0,CATEGORY_SPECIAL_SUMMON,nil,3,tp,0)
 	if e:IsHasType(EFFECT_TYPE_ACTIVATE) then
 		Duel.SetChainLimit(aux.FALSE)
 	end
 end
 function c1201.operation1(e,tp,eg,ep,ev,re,r,rp)
-	local g=Duel.GetChainInfo(0,CHAININFO_TARGET_CARDS):Filter(c1201.filter1,nil,e)
+	local g=Duel.GetChainInfo(0,CHAININFO_TARGET_CARDS)
 	if g:GetCount()>0
 	and Duel.GetLocationCount(tp,LOCATION_MZONE)>0
 	and Duel.Destroy(g,REASON_EFFECT) > 0

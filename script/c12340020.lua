@@ -1,4 +1,4 @@
---绪方白
+--VUP·绪方白
 local this,id,o=GetID()
 function this.initial_effect(c)
     --special summon (self)
@@ -12,7 +12,7 @@ function this.initial_effect(c)
 	c:RegisterEffect(e1)
 
     local e2=Effect.CreateEffect(c)
-	e2:SetType(EFFECT_TYPE_FIELD)
+	e2:SetType(EFFECT_TYPE_FIELD+EFFECT_TYPE_CONTINUOUS)
 	e2:SetCode(EFFECT_INDESTRUCTABLE_BATTLE)
 	e2:SetRange(LOCATION_MZONE)
 	e2:SetTargetRange(LOCATION_MZONE,0)
@@ -22,8 +22,8 @@ function this.initial_effect(c)
 
     local e3=Effect.CreateEffect(c)
 	e3:SetCategory(CATEGORY_TOHAND+CATEGORY_SEARCH)
-	e3:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_QUICK_F)
-	e3:SetProperty(EFFECT_FLAG_DAMAGE_STEP)
+	e3:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_TRIGGER_F)
+	e3:SetProperty(EFFECT_FLAG_DAMAGE_STEP+EFFECT_FLAG_DELAY)
 	e3:SetCode(EVENT_TO_GRAVE)
 	e3:SetCountLimit(1,id+1)
 	e3:SetCost(this.cost3)

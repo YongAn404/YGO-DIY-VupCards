@@ -17,6 +17,7 @@ function this.initial_effect(c)
     local e2=Effect.CreateEffect(c)
     e2:SetCategory(CATEGORY_TOHAND+CATEGORY_SEARCH)
 	e2:SetType(EFFECT_TYPE_SINGLE+EFFECT_TYPE_TRIGGER_F)
+    e2:SetProperty(EFFECT_FLAG_DELAY)
 	e2:SetCode(EVENT_DESTROYED)
     e2:SetCondition(this.condition2)
     e2:SetCost(this.cost2)
@@ -30,7 +31,6 @@ function this.cost1(e,tp,eg,ep,ev,re,r,rp,chk)
     if chk==0 then
         return Duel.IsExistingMatchingCard(Card.IsDiscardable,tp,LOCATION_HAND,0,1,nil)
         and Duel.IsExistingMatchingCard(this.filter1,tp,LOCATION_DECK,0,1,nil)
-        and Duel.GetLocationCount(tp,LOCATION_MZONE)>0
     end
     Duel.SetOperationInfo(0,CATEGORY_TOHAND,nil,1,tp,LOCATION_DECK)
 end

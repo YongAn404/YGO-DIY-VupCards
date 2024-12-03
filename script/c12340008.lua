@@ -1,4 +1,4 @@
---Test铃仙
+--VUP·链接铃仙
 local this,id,ofs=GetID()
 function this.initial_effect(c)
 	--link summon
